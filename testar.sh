@@ -23,7 +23,7 @@ while getopts ":l:a:n:t:h" name; do
         t) tamanho=${OPTARG};;
         h) 
             help
-            exet 1
+            exit 1
             ;;
         :)
             echo "O argumento (-${OPTARG}) precisa ter conteúdo."
