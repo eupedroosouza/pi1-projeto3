@@ -15,12 +15,16 @@ function help() {
 # a -> algoritmo (buble ou merge)
 # n -> numero de execuções
 # t -> tamanho da entrada
-while getopts ":l:a:n:t:" name; do
+while getopts ":l:a:n:t:h" name; do
     case "${name}" in
         l) linguagem=${OPTARG};;
         a) algoritmo=${OPTARG};;
         n) execucoes=${OPTARG};;
         t) tamanho=${OPTARG};;
+        h) 
+            help
+            exet 1
+            ;;
         :)
             echo "O argumento (-${OPTARG}) precisa ter conteúdo."
             help
