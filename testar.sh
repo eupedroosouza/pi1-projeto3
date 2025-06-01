@@ -9,13 +9,16 @@ function help() {
     echo "-a [algoritmo - bubble/merge] → qual o algoritmo a ser executado"
     echo "-n [número de execuções - ex: 10] → quantas vezes o algoritmo vai executar"
     echo "-t [tamanho da entrada - ex 5, equivalente a 10^5] - o tamanho da entrada (tamanho da lista que o algoritmo ordenará)"
+    echo "-P → pula a etapa de tratamento de dados."
 }
+
+pularTratamento=0
 
 # l -> linguagem (c ou ptython)
 # a -> algoritmo (buble ou merge)
 # n -> numero de execuções
 # t -> tamanho da entrada
-while getopts ":l:a:n:t:h" name; do
+while getopts ":l:a:n:t:hP" name; do
     case "${name}" in
         l) linguagem=${OPTARG};;
         a) algoritmo=${OPTARG};;
@@ -24,6 +27,9 @@ while getopts ":l:a:n:t:h" name; do
         h) 
             help
             exit 1
+            ;;
+        P)
+            pularTratamento=1
             ;;
         :)
             echo "O argumento (-${OPTARG}) precisa ter conteúdo."
@@ -202,8 +208,17 @@ echo ""
 
 # tratamento de dados
 echo "<======= Tratamento de Dados =======>"
-echo ""
-# todo
+arquivoScriptTratamento="${pastaExecucao}/tratamento.sh"
+if [[ $pularTratamento == 1 ]]; then
+    echo "O teste recebeu o paramêtro (-P), pulando o tratamento de dados."
+else
+    if [[ -e $arquivoScriptTratamento ]]; then
+        echo "Rodando o script de tratamento de dados!"
+        $(${echo $arquivoScriptTratamento} -a ${echo $arquivoSaida} -l ${echo $linguagem} -a ${echo $algoritimo})
+    else 
+        echo "O script de tratamento de dados não foi encontrado. Pulando o tratamento de dados...."
+    fi
+fi
 
 # fim
 echo "Fim da execução!"
