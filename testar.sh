@@ -156,9 +156,9 @@ echo "Diretório de saídas: $pastaSaida"
 echo "Arquivo de saída: $nomeArquivoSaida."
 echo "Checando arquivo de saída."
 if ! [[ -d $pastaSaida ]]; then
-    echo "Diretóriio de saídas não existe, criando..."
-    echo "Diretório de saídas criado: ${pastaSaida}/saidas"
+    echo "Diretório de saídas não existe, criando..."
     mkdir $pastaSaida
+    echo "Diretório de saídas criado: ${pastaSaida}/saidas"
 else
     if [[ -e $arquivoSaida ]]; then
         echo "Já existe arquivo de saída. Fazendo backup..."
