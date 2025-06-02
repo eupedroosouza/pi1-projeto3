@@ -25,7 +25,7 @@ done
 
 #
 
-if [[ -z "$arquivoEntrada" || -z "$linguagem" || -z "$algoritmo" ]]; then
+if [[ -z "$entrada" || -z "$linguagem" || -z "$algoritmo" ]]; then
     echo "Erro: argumentos obrigatorios não forneicidos ou incompletos"
     echo "esperado o Uso de: $0 -a <arquivo.csv> -l <linguagem> -g <algoritmo>"
     exit 1
@@ -45,7 +45,7 @@ media=$(awk '{s+=$1} END {if (NR > 0) print s/NR; else print 0}' "$entrada")
 
 
 #
-saidas="saidas.csv"
+saidas="saidas/medias_consolidadas.csv"
 
 
 
