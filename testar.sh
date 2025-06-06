@@ -1,7 +1,7 @@
 #!/bin/bash
 
 regex_isanumber="^[0-9]+$"
-pastaExecucao=`echo "$PWD"`
+pastaExecucao=$(echo "$PWD")
 
 function help() {
     echo "<======= Ajuda (Teste de Ordenação Bubblesort e Mergesort em Python e C) =======>"
@@ -214,7 +214,9 @@ if [[ $pularTratamento == 1 ]]; then
 else
     if [[ -e $arquivoScriptTratamento ]]; then
         echo "Rodando o script de tratamento de dados!"
-        $(${echo $arquivoScriptTratamento} -a ${echo $arquivoSaida} -l ${echo $linguagem} -a ${echo $algoritimo})
+        echo "<==>"
+        bash $(echo $arquivoScriptTratamento) -a $(echo $arquivoSaida) -l $(echo $linguagem) -g $(echo $algoritmo) -t $(echo $tamanho)
+        echo "<==>"
     else 
         echo "O script de tratamento de dados não foi encontrado. Pulando o tratamento de dados...."
     fi
