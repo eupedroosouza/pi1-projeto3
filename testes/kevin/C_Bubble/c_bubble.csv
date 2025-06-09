@@ -1,2 +1,7 @@
-linguagem;algoritmo;tamanho;media
-c;bubble;10^5;30.37040844
+linguagem	algoritmo	tamanho	media
+c	bubble	10^1	0.0000019
+c	bubble	10^2	0.0000278
+c	bubble	10^3	0.019927 
+c	bubble	10^4	0.2472312
+c	bubble	10^5	30.370.409
+
