@@ -87,8 +87,20 @@ void merge_sort(int arr[], int len) {
     }
 
     int mid = len / 2;
-    int left[mid];
-    int right[len - mid];
+    int *left = malloc(mid * sizeof(int));
+    if (left == NULL) {
+        printf("Erro ao alocar memória.\n");
+        return 1;
+    }
+    int *right = malloc((len - mid) * sizeof(int));
+    if (right == NULL) {
+        printf("Erro ao alocar memória.\n");
+        return 1;
+    }
+    
+    // int mid = len / 2;
+    // int left[mid];
+    // int right[len - mid];
 
     for (int i = 0; i < mid; i++) {
         left[i] = arr[i];
@@ -100,4 +112,6 @@ void merge_sort(int arr[], int len) {
     merge_sort(left, mid);
     merge_sort(right, len - mid);
     merge(arr, left, right, mid, len - mid);
+    free(left);
+    free(right);
 }

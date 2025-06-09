@@ -202,7 +202,7 @@ echo "Foram executados $execucoes testes."
 fimTeste=$(date +"%d/%m/%Y %H:%M:%S")
 segundosFim=$(date +%s)
 segundos=$(($segundosInicio - $segundosFim))
-echo "Fim dos testes: $inicioTeste"
+echo "Fim dos testes: $fimTeste"
 echo "Os testes levaram $((segundos/3600)) hora(s) $((segundos%3600/60)), minuto(s) e $((segundos%60)) segundo(s)."
 echo ""
 
