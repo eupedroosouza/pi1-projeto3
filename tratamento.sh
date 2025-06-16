@@ -1,5 +1,6 @@
 #!/bin/bash
 
+mkdir -p graficos
 
 arquivos=(
     "c_bubble.csv"
