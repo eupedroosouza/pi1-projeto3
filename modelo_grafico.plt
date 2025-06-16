@@ -20,7 +20,7 @@ set datafile separator ";"
 set logscale x
 set logscale y
 
-set xrange [10:100000]
+set xrange [10:1000000000]
 
 
 set format x "10^{%L}"
