@@ -21,7 +21,7 @@ if (exists("hardware")) {
 set xlabel "Tamanho da Entrada (10^n)"
 set ylabel "Tempo (segundos)"
 set datafile separator ";"
-set xrange [1:5]
+set xrange [1:6]
 set xtics (0, "10^1" 1, "10^2" 2, "10^3" 3, "10^4" 4, "10^5" 5, "10^6" 6, "10^7" 7, "10^8" 8, "10^9" 9, "10^{10}" 10, "10^{11}" 11, "10^{12}" 12)
 set grid
 set logscale y
@@ -29,17 +29,17 @@ set logscale x
 set key below
 
 if (exists("com_numero")) {
-     plot 'saidas_formatadas/c_merge.csv' using ($0):4 with linespoints lt 1 lw 2 pt 7 ps 1.5 lc rgb "#ff9300" title 'Mergesort no C', \
+     plot 'saidas/c_merge.csv' using ($0):4 with linespoints lt 1 lw 2 pt 7 ps 1.5 lc rgb "#ff9300" title 'Mergesort no C', \
      '' using ($0):4:(sprintf("%.8f", $4)) with labels offset 6.2,0 tc rgb "#ff9300" notitle, \
-     'saidas_formatadas/c_bubble.csv' using ($0):4 with linespoints lt 1 lw 2 pt 7 ps 1.5 lc rgb "#ff3900" title 'Bubblesort no C', \
+     'saidas/c_bubble.csv' using ($0):4 with linespoints lt 1 lw 2 pt 7 ps 1.5 lc rgb "#ff3900" title 'Bubblesort no C', \
      '' using ($0):4:(sprintf("%.8f", $4)) with labels offset -6.2,0 tc rgb "#ff3900" notitle, \
-     'saidas_formatadas/python_merge.csv' using ($0):4 with linespoints lt 1 lw 2 pt 7 ps 1.5 lc rgb "#8bf745" title 'Mergesort no Python', \
+     'saidas/python_merge.csv' using ($0):4 with linespoints lt 1 lw 2 pt 7 ps 1.5 lc rgb "#8bf745" title 'Mergesort no Python', \
      '' using ($0):4:(sprintf("%.8f", $4)) with labels offset -6.2,0 tc rgb "#8bf745" notitle, \
-     'saidas_formatadas/python_bubble.csv' using ($0):4 with linespoints lt 1 lw 2 pt 7 ps 1.5 lc rgb "#38b5f4" title 'Bubblesort no Python', \
+     'saidas/python_bubble.csv' using ($0):4 with linespoints lt 1 lw 2 pt 7 ps 1.5 lc rgb "#38b5f4" title 'Bubblesort no Python', \
      '' using ($0):4:(sprintf("%.8f", $4)) with labels offset 6.2,0 tc rgb "#38b5f4" notitle
 } else {
-    plot 'saidas_formatadas/c_merge.csv' using ($0):4 with linespoints lt 1 lw 2 pt 7 ps 1.5 lc rgb "#ff9300" title 'Mergesort no C', \
-        'saidas_formatadas/c_bubble.csv' using ($0):4 with linespoints lt 1 lw 2 pt 7 ps 1.5 lc rgb "#ff3900" title 'Bubblesort no C', \
-        'saidas_formatadas/python_merge.csv' using ($0):4 with linespoints lt 1 lw 2 pt 7 ps 1.5 lc rgb "#8bf745" title 'Mergesort no Python', \
-        'saidas_formatadas/python_bubble.csv' using ($0):4 with linespoints lt 1 lw 2 pt 7 ps 1.5 lc rgb "#38b5f4" title 'Bubblesort no Python', \
+    plot 'saidas/c_merge.csv' using ($0):4 with linespoints lt 1 lw 2 pt 7 ps 1.5 lc rgb "#ff9300" title 'Mergesort no C', \
+        'saidas/c_bubble.csv' using ($0):4 with linespoints lt 1 lw 2 pt 7 ps 1.5 lc rgb "#ff3900" title 'Bubblesort no C', \
+        'saidas/python_merge.csv' using ($0):4 with linespoints lt 1 lw 2 pt 7 ps 1.5 lc rgb "#8bf745" title 'Mergesort no Python', \
+        'saidas/python_bubble.csv' using ($0):4 with linespoints lt 1 lw 2 pt 7 ps 1.5 lc rgb "#38b5f4" title 'Bubblesort no Python', \
 }
