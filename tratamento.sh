@@ -62,20 +62,20 @@ fi
 
 v_tamanho=$((10 ** tamanho))
 
-#
+
 echo "$linguagem;$algoritmo;$v_tamanho;$media" >> "$caminho_saida"
 
 echo "Finalizado! Resultados atualizados em: $caminho_saida"
 
 
-cpu_name=$(lscpu | grep "Model name:" | sed 's/Model name:[ \t]*//')
-ram_kb=$(grep MemTotal /proc/meminfo | awk '{print $2}')
-ram_gb=$((ram_kb / 1024 / 1024))
-hardware="${cpu_name} - ${ram_gb} GB RAM"
+# cpu_name=$(lscpu | grep "Model name:" | sed 's/Model name:[ \t]*//')
+# ram_kb=$(grep MemTotal /proc/meminfo | awk '{print $2}')
+# ram_gb=$((ram_kb / 1024 / 1024))
+# hardware="${cpu_name} - ${ram_gb} GB RAM"
 
-com_numero=""
+# com_numero=""
 
 
-gnuplot -e "hardware='${hardware}'; com_numero='${com_numero}'" modelo_grafico.plt
+# gnuplot -e "hardware='${hardware}'; com_numero='${com_numero}'" modelo_grafico.plt
 
-echo "Gráfico gerado em ./graficos/"
+# echo "Gráfico gerado em ./graficos/"
