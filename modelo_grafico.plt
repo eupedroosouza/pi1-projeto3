@@ -21,10 +21,11 @@ if (exists("hardware")) {
 set xlabel "Tamanho da Entrada (10^n)"
 set ylabel "Tempo (segundos)"
 set datafile separator ";"
-set xrange [0:6]
+set xrange [1:5]
 set xtics (0, "10^1" 1, "10^2" 2, "10^3" 3, "10^4" 4, "10^5" 5, "10^6" 6, "10^7" 7, "10^8" 8, "10^9" 9, "10^{10}" 10, "10^{11}" 11, "10^{12}" 12)
 set grid
 set logscale y
+set logscale x
 set key below
 
 if (exists("com_numero")) {
